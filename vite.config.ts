@@ -5,6 +5,7 @@ export default defineConfig(({ mode }) => {
   const apiKey = env.VITE_OUTSHIFT_API_KEY;
 
   return {
+    base: mode === 'production' ? '/stats-game/' : '/',
     server: {
       open: false,
       proxy: {
