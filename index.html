@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocket Ride - Crash Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="ui">
+      <div class="ui-top">
+        <div class="top-stack">
+          <div class="brand">Ilan Garcia's Rocket Ride (for Mr. Iams' Stats Class)</div>
+          <div class="history">
+            <div class="history-label">Last Rounds</div>
+            <div id="historyRail" class="history-rail"></div>
+          </div>
+        </div>
+        <div class="menu">
+          <div id="balance" class="menu-card balance">Balance: $100.00</div>
+          <div id="lastResult" class="menu-card last">Last result: --</div>
+          <button id="muteBtn" class="ghost menu-card">Mute</button>
+        </div>
+      </div>
+
+      <div class="ui-hud">
+        <div id="multiplier" class="multiplier calm">1.00x</div>
+        <div id="fuelCharge" class="fuel-charge hidden">
+          <div class="fuel-label">Fuel charge</div>
+          <div class="fuel-bar">
+            <div class="fuel-fill"></div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-label">Bet</div>
+            <div class="stat-value">$10.00</div>
+          </div>
+          <div class="stat-box return">
+            <div class="stat-label">Return</div>
+            <div class="stat-value">
+              <span class="coin">$</span>
+              <span id="potential">10.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-bottom">
+        <div class="controls center">
+          <button id="playBtn" class="primary">Launch</button>
+        </div>
+        <div id="tooltip" class="tooltip hidden">Balance too low to play.</div>
+      </div>
+
+      <div id="banner" class="banner hidden"></div>
+      <div id="megaWin" class="mega-win hidden">
+        <div class="mega-win-inner">
+          <div id="megaWinTitle" class="mega-win-title">BIG WIN</div>
+          <div id="megaWinSubtitle" class="mega-win-subtitle">10x+</div>
+        </div>
+        <div class="mega-win-ring"></div>
+      </div>
+
+      <button id="howToggle" class="how-toggle">How it works</button>
+      <div id="howPanel" class="how-panel hidden">
+        <div>h = 0.06</div>
+        <div>M = min(25, (1 - h) / U)</div>
+        <div>P(reach m) = 0.94 / m</div>
+        <div>EV(player net) = -$0.60 per play</div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
