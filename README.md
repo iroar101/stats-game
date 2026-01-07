@@ -35,3 +35,5 @@ M = min(25, (1 - h) / U)
 ```
 
 QRNG fetch comes from Cisco Outshift, with a local crypto fallback if the request fails.
+
+Note: GitHub Pages is static and cannot proxy `/api/qrng`. In production builds, the app uses local crypto unless you build with `VITE_QRNG_URL` pointing at your own serverless proxy.

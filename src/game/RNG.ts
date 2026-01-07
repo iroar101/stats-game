@@ -1,6 +1,7 @@
 import { HOUSE_EDGE, MAX_MULTIPLIER } from './state';
 
-const QRNG_URL = '/api/qrng';
+const QRNG_URL = import.meta.env.VITE_QRNG_URL ?? '/api/qrng';
+const SHOULD_USE_QRNG = import.meta.env.DEV || Boolean(import.meta.env.VITE_QRNG_URL);
 const QRNG_BODY = {
   encoding: 'base64',
   format: 'decimal',
@@ -24,6 +25,12 @@ export class RNG {
   public isQuantum = false;
 
   async getUint16(): Promise<number> {
+    if (!SHOULD_USE_QRNG) {
+      this.isQuantum = false;
+      const fallback = new Uint16Array(1);
+      crypto.getRandomValues(fallback);
+      return fallback[0];
+    }
     try {
       const response = await fetch(QRNG_URL, {
         method: 'POST',
